@@ -4,6 +4,8 @@ class Enemy {
         this.sprite = 'images/enemy-bug.png';
         this.x = x;
         this.y = y;
+        this.width = 101;
+        this.height = 171;
         this.vel = dv;
         this.startpos = x;
     }
@@ -25,6 +27,8 @@ class Player {
         this.sprite = 'images/char-boy.png';
         this.x = x;
         this.y = y;
+        this.width = 101;
+        this.height = 171;
         this.stepsXAxis = 0;
         this.stepsYAxis = 0;
     }
@@ -45,6 +49,7 @@ class Player {
         this.stepsXAxis = 0;
         this.y = this.y + this.stepsYAxis;
         this.stepsYAxis = 0;
+        this.checkCollisions();
         // console.log(this.x, this.y);
 
     }
