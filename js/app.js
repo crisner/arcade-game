@@ -31,6 +31,8 @@ class Player {
         this.height = 171;
         this.stepsXAxis = 0;
         this.stepsYAxis = 0;
+        this.posX = 0;
+        this.posY = 0;
     }
     handleInput(dir) {
         if(dir === 'up') {
@@ -45,11 +47,13 @@ class Player {
     }
     update() {
         // console.log(dt);
+        this.posX = this.x;
+        this.posY = this.y;
         this.x = this.x + this.stepsXAxis;
         this.stepsXAxis = 0;
         this.y = this.y + this.stepsYAxis;
         this.stepsYAxis = 0;
-        this.checkCollisions();
+        // this.checkCollisions();
         // console.log(this.x, this.y);
 
     }
