@@ -12,7 +12,7 @@ class Enemy {
         if(this.x > 500) {
             this.x = Math.floor(Math.random()*200 + 100) * (-1);
         } else {
-            this.x = this.x + dt * this.vel;
+            this.x = this.x + this.vel * dt;
         }
     }
     render() {
@@ -86,9 +86,9 @@ class Player {
 let enemy1 = new Enemy(Math.floor(Math.random()*200 + 100) * (-1), 60, Math.floor(Math.random() * 50 + 30));
 let enemy2 = new Enemy(Math.floor(Math.random()*200 + 250) * (-1), 60, Math.floor(Math.random() * 50 + 30));
 let enemy3 = new Enemy(Math.floor(Math.random()*200 + 200) * (-1), 140, Math.floor(Math.random() * 50 + 30));
-let enemy4 = new Enemy(Math.floor(Math.random()*200 + 350) * (-1), 140, Math.floor(Math.random() * 50 + 30));
+let enemy4 = new Enemy(Math.floor(Math.random()*200 + 350) * (-1), 140, Math.floor(Math.random() * 50 + 50));
 let enemy5 = new Enemy(Math.floor(Math.random()*200 + 300) * (-1), 225, Math.floor(Math.random() * 50 + 30));
-let enemy6 = new Enemy(Math.floor(Math.random()*200 + 450) * (-1), 225, Math.floor(Math.random() * 50 + 30));
+let enemy6 = new Enemy(Math.floor(Math.random()*200 + 450) * (-1), 225, Math.floor(Math.random() * 50 + 40));
 let allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];
 
 let player = new Player(200, 380);
