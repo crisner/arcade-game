@@ -164,11 +164,30 @@ var Engine = (function(global) {
         // noop
     }
     function checkCollisions() {
+        // if(player.y === -20) {
+        //     // setTimeout(function() {
+        //     //     alert('You win');
+        //     //     player.x = 200;
+        //     //     player.y = 380;
+        //     // }, 1000);
+        // }
         if(player.x < 0 || player.x + player.width > canvas.width) {
             player.x = player.posX;
         } else if(player.y + 20 < 0 || player.y + player.height > canvas.height) {
             player.y = player.posY;
         }
+
+        allEnemies.forEach(function(enemy) {
+            if( player.x + (player.width / 2) - 27 < enemy.x + enemy.width &&
+                player.x + (player.width / 2) + 20 > enemy.x &&
+                player.y + 100 < enemy.y + enemy.height &&
+                player.y + (player.height / 2) - 10 > enemy.y   ) {
+                    setTimeout(function() {
+                        player.x = 200;
+                        player.y = 380;
+                    }, 100);
+                }
+        });
     }
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
