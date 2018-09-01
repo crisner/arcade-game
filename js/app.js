@@ -8,12 +8,18 @@ class Enemy {
         this.height = 171;
         this.vel = dv;
         this.startpos = x;
+        this.currentpos = 0;
     }
     update(dt) {
+        if(player.y === -20) {
+            dt = 0;
+            this.x = this.currentpos;
+        }
         // Loop objects
         if(this.x > 500) {
             this.x = Math.floor(Math.random()*200 + 100) * (-1);
         } else {
+            this.currentpos = this.x;
             this.x = this.x + this.vel * dt;
         }
     }
@@ -46,9 +52,8 @@ class Player {
         }
     }
     update() {
-        // console.log(dt);
-        // this.posX = this.x;
-        // this.posY = this.y;
+        this.posX = this.x;
+        this.posY = this.y;
         this.x = this.x + this.stepsXAxis;
         this.stepsXAxis = 0;
         this.y = this.y + this.stepsYAxis;
@@ -58,6 +63,7 @@ class Player {
         let canvas = document.querySelector('canvas');
 
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+
         if(this.y === -20) {
             ctx.font = 'normal 50pt Fredoka One';
             ctx.lineWidth = 3;
