@@ -162,6 +162,8 @@ var Engine = (function(global) {
         allLives.forEach(function(life) {
             life.render();
         });
+
+        resetBtn.render();
     }
 
     /* This function does nothing but it could have been a good place to

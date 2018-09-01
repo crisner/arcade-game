@@ -107,6 +107,29 @@ class Greyedheart extends Life {
     }
 }
 
+class Resetbtn {
+    constructor() {
+        this.x = 10;
+        this.y = 555;
+
+        this.canvasWidth = function() {
+            let canvas = document.querySelector('canvas');
+            return canvas.width;
+        };
+
+    }
+    render() {
+        // let canvas =
+
+        ctx.font = 'bold 12pt Calibri';
+        ctx.textAlign = 'end';
+        ctx.textBaseline = 'top';
+        ctx.fillStyle = 'black';
+        ctx.fillText('Play again', this.canvasWidth() - this.x, this.y);
+        // console.log(this.canvasWidth());
+    }
+}
+
 WebFont.load({
     google: {
       families: ['Fredoka One']
@@ -159,6 +182,8 @@ let enemy6 = new Enemy(Math.floor(Math.random()*200 + 450) * (-1), 225, Math.flo
 let allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];
 
 let player = new Player(200, 380);
+
+let resetBtn = new Resetbtn();
 
 let life1 = new Life(10, 550);
 let life2 = new Life(30, 550);
