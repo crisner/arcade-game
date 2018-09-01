@@ -11,7 +11,7 @@ class Enemy {
         this.currentpos = 0;
     }
     update(dt) {
-        if(player.y === -20) {
+        if(player.y === -20 || player.lives === 0) {
             dt = 0;
             this.x = this.currentpos;
         }
@@ -43,13 +43,13 @@ class Player {
         this.collided = false;
     }
     handleInput(dir) {
-        if(dir === 'up' && this.y !== -20) {
+        if(dir === 'up' && this.y !== -20 && player.lives > 0) {
             this.stepsYAxis = -80;
-        } else if(dir === 'down' && this.y !== -20) {
+        } else if(dir === 'down' && this.y !== -20 && player.lives > 0) {
             this.stepsYAxis = 80;
-        } else if(dir === 'right' && this.y !== -20) {
+        } else if(dir === 'right' && this.y !== -20 && player.lives > 0) {
             this.stepsXAxis = 100;
-        } else if( dir === 'left' && this.y !== -20) {
+        } else if( dir === 'left' && this.y !== -20 && player.lives > 0) {
             this.stepsXAxis = -100;
         }
     }
@@ -75,6 +75,15 @@ class Player {
             ctx.fillText('You win!', canvas.width/2, canvas.height/2);
             ctx.strokeStyle = 'black';
             ctx.strokeText('You win!', canvas.width/2, canvas.height/2);
+        } else if(this.lives === 0) {
+            ctx.font = 'normal 50pt Fredoka One';
+            ctx.lineWidth = 3;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = 'white';
+            ctx.fillText('You lose!', canvas.width/2, canvas.height/2);
+            ctx.strokeStyle = 'black';
+            ctx.strokeText('You lose!', canvas.width/2, canvas.height/2);
         }
     }
 }
