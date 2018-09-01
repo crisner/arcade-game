@@ -53,14 +53,36 @@ class Player {
         this.stepsXAxis = 0;
         this.y = this.y + this.stepsYAxis;
         this.stepsYAxis = 0;
+
+        if(this.y === -20) {
+            // setTimeout(function() {
+                // console.log('You win');
+                // alert('You win');
+            //     player.x = 200;
+            //     player.y = 380;
+            // }, 1000);
+        }
         // this.checkCollisions();
         // console.log(this.x, this.y);
 
     }
     render() {
+        let canvas = document.querySelector('canvas');
+        // console.log(canvas, canvas.width, canvas.height);
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+        ctx.font = 'normal 50pt Calibri';
+        ctx.fillStyle = 'black';
+        ctx.fillText('You win!', canvas.width/2, canvas.height/2);
+
+
     }
 }
+
+// class Results {
+//     constructor() {
+
+//     }
+// }
 
 // var Enemy = function() {
 //     // Variables applied to each of our instances go here,
