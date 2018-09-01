@@ -88,6 +88,21 @@ class Player {
     }
 }
 
+class Life {
+    constructor(x, y) {
+        this.sprite = 'images/Heart.png';
+        this.x = x;
+        this.y = y;
+        this.width = 20;
+        this.height = 30;
+    }
+    update() {
+    }
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y, this.width, this.height);
+    }
+}
+
 WebFont.load({
     google: {
       families: ['Fredoka One']
@@ -140,6 +155,11 @@ let enemy6 = new Enemy(Math.floor(Math.random()*200 + 450) * (-1), 225, Math.flo
 let allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];
 
 let player = new Player(200, 380);
+
+let life1 = new Life(10, 550);
+let life2 = new Life(30, 550);
+let life3 = new Life(50, 550);
+let allLives = [life1, life2, life3];
 
 
 // This listens for key presses and sends the keys to your
