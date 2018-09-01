@@ -39,6 +39,8 @@ class Player {
         this.stepsYAxis = 0;
         this.posX = 0;
         this.posY = 0;
+        this.lives = 3;
+        this.collided = false;
     }
     handleInput(dir) {
         if(dir === 'up' && this.y !== -20) {

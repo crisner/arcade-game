@@ -166,7 +166,8 @@ var Engine = (function(global) {
     function checkCollisions() {
         // if(player.y === -20) {
         //     // setTimeout(function() {
-        //     //     alert('You win');
+        //         console.log('You win');
+        //         // alert('You win');
         //     //     player.x = 200;
         //     //     player.y = 380;
         //     // }, 1000);
@@ -177,16 +178,29 @@ var Engine = (function(global) {
             player.y = player.posY;
         }
 
+        // player.collided = player.x === 200 && player.y === 380;
+        //                 // console.log(player.collided);
+
         allEnemies.forEach(function(enemy) {
             if( player.x + (player.width / 2) - 27 < enemy.x + enemy.width &&
                 player.x + (player.width / 2) + 20 > enemy.x &&
                 player.y + 100 < enemy.y + enemy.height &&
-                player.y + (player.height / 2) - 10 > enemy.y   ) {
-                    setTimeout(function() {
-                        player.x = 200;
-                        player.y = 380;
-                    }, 100);
-                }
+                player.y + (player.height / 2) - 10 > enemy.y ) {
+
+                player.collided = true;
+                setTimeout(function() {
+                    player.x = 200;
+                    player.y = 380;
+                }, 100);
+
+                setTimeout(function() {
+                    if(player.collided) {
+                        player.lives--;
+                        player.collided = false;
+                    }
+                    console.log(player.lives);
+                }, 101);
+            }
         });
     }
     /* Go ahead and load all of the images we know we're going to need to
