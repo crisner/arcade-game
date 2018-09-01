@@ -70,11 +70,15 @@ class Player {
         let canvas = document.querySelector('canvas');
         // console.log(canvas, canvas.width, canvas.height);
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-        ctx.font = 'normal 50pt Calibri';
-        ctx.fillStyle = 'black';
-        ctx.fillText('You win!', canvas.width/2, canvas.height/2);
-
-
+        // if(this.y === -20) {
+            ctx.font = 'normal 50pt Calibri';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = 'black';
+            ctx.fillText('You win!', canvas.width/2, canvas.height/2);
+            // ctx.strokeStyle = 'black';
+            // ctx.strokeText('You win!', canvas.width/2, canvas.height/2);
+        // }
     }
 }
 
