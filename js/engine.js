@@ -155,6 +155,10 @@ var Engine = (function(global) {
 
         player.render();
 
+        allGreyedHearts.forEach(function(heart) {
+            heart.render();
+        });
+
         allLives.forEach(function(life) {
             life.render();
         });
@@ -200,6 +204,7 @@ var Engine = (function(global) {
                 setTimeout(function() {
                     if(player.collided) {
                         player.lives--;
+                        allLives.pop();
                         player.collided = false;
                     }
                     console.log(player.lives);
@@ -217,7 +222,8 @@ var Engine = (function(global) {
         'images/grass-block.png',
         'images/enemy-bug.png',
         'images/char-boy.png',
-        'images/Heart.png'
+        'images/Heart.png',
+        'images/Heart-gray.png'
     ]);
     Resources.onReady(init);
 

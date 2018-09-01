@@ -96,10 +96,14 @@ class Life {
         this.width = 20;
         this.height = 30;
     }
-    update() {
-    }
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y, this.width, this.height);
+    }
+}
+class Greyedheart extends Life {
+    constructor(x, y) {
+        super(x, y);
+        this.sprite = 'images/Heart-gray.png';
     }
 }
 
@@ -160,6 +164,11 @@ let life1 = new Life(10, 550);
 let life2 = new Life(30, 550);
 let life3 = new Life(50, 550);
 let allLives = [life1, life2, life3];
+
+let greyedHeart1 = new Greyedheart(10, 550);
+let greyedHeart2 = new Greyedheart(30, 550);
+let greyedHeart3 = new Greyedheart(50, 550);
+let allGreyedHearts = [greyedHeart1, greyedHeart2, greyedHeart3];
 
 
 // This listens for key presses and sends the keys to your
