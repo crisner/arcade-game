@@ -35,42 +35,30 @@ class Player {
         this.posY = 0;
     }
     handleInput(dir) {
-        if(dir === 'up') {
+        if(dir === 'up' && this.y !== -20) {
             this.stepsYAxis = -80;
-        } else if(dir === 'down') {
+        } else if(dir === 'down' && this.y !== -20) {
             this.stepsYAxis = 80;
-        } else if(dir === 'right') {
+        } else if(dir === 'right' && this.y !== -20) {
             this.stepsXAxis = 100;
-        } else if( dir === 'left') {
+        } else if( dir === 'left' && this.y !== -20) {
             this.stepsXAxis = -100;
         }
     }
     update() {
         // console.log(dt);
-        this.posX = this.x;
-        this.posY = this.y;
+        // this.posX = this.x;
+        // this.posY = this.y;
         this.x = this.x + this.stepsXAxis;
         this.stepsXAxis = 0;
         this.y = this.y + this.stepsYAxis;
         this.stepsYAxis = 0;
-
-        if(this.y === -20) {
-            // setTimeout(function() {
-                // console.log('You win');
-                // alert('You win');
-            //     player.x = 200;
-            //     player.y = 380;
-            // }, 1000);
-        }
-        // this.checkCollisions();
-        // console.log(this.x, this.y);
-
     }
     render() {
         let canvas = document.querySelector('canvas');
 
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-        // if(this.y === -20) {
+        if(this.y === -20) {
             ctx.font = 'normal 50pt Fredoka One';
             ctx.lineWidth = 3;
             ctx.textAlign = 'center';
@@ -79,7 +67,7 @@ class Player {
             ctx.fillText('You win!', canvas.width/2, canvas.height/2);
             ctx.strokeStyle = 'black';
             ctx.strokeText('You win!', canvas.width/2, canvas.height/2);
-        // }
+        }
     }
 }
 
