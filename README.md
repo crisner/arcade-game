@@ -1,6 +1,22 @@
-frontend-nanodegree-arcade-game
-===============================
+# frontend-nanodegree-arcade-game
+This is a game which is an simplified version of the classic arcade game 'Frogger'.
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+## Game controls
+- Press the arrow keys to move the player
+- The player has to safely cross over to the water avoiding the bugs
+- Player loses a life upon contact with the bugs
+- Player has a total of three lives
+- Player loses game upon losing all lives
+- Player wins game on reaching the water
+- Player can restart the game anytime during the game or after completing current game by clicking on the restart text at the bottom of the screen
+- Player can keep track of lives remaining from the number of red hearts on the bottom of the screen
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## Tools used
+- HTML5 canvas
+- Javascript/es6
+- [Web Font Loader](https://github.com/typekit/webfontloader)
+
+## Credit
+- Game assets and game engine provided by Udacity for arcade game project as part of the Front End Nanodegree program.
+
+- Other code and additional game functions done by self(Renisha Christie).
