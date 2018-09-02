@@ -28,6 +28,7 @@ class Enemy {
     }
 }
 
+// Player
 class Player {
     constructor(x, y) {
         this.sprite = 'images/char-boy.png';
@@ -35,10 +36,10 @@ class Player {
         this.y = y;
         this.width = 101;
         this.height = 171;
-        this.stepsXAxis = 0;
-        this.stepsYAxis = 0;
-        this.posX = 0;
-        this.posY = 0;
+        this.stepsXAxis = 0;    // Units per move on the X-axis
+        this.stepsYAxis = 0;    // Units per move on the Y-axis
+        this.posX = 0;          // Store last position on the X-axis
+        this.posY = 0;          // Store last position on the X-axis
         this.lives = 3;
         this.collided = false;
     }
@@ -66,6 +67,7 @@ class Player {
 
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 
+        // Display game win or loss
         if(this.y === -20) {
             ctx.font = 'normal 50pt Fredoka One';
             ctx.lineWidth = 3;
@@ -88,6 +90,7 @@ class Player {
     }
 }
 
+// Player's life to display on canvas
 class Life {
     constructor(x, y) {
         this.sprite = 'images/Heart.png';
@@ -100,6 +103,7 @@ class Life {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y, this.width, this.height);
     }
 }
+// To represent lives lost
 class Greyedheart extends Life {
     constructor(x, y) {
         super(x, y);
@@ -107,6 +111,7 @@ class Greyedheart extends Life {
     }
 }
 
+// Button to restart game
 class Restartbtn {
     constructor() {
         this.x = 10;
@@ -173,6 +178,7 @@ WebFont.load({
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 // let enemy1 = new Enemy(170, 60, Math.floor(Math.random() * 50 + 30));
+//  All enemies
 let enemy1 = new Enemy(Math.floor(Math.random()*200 + 100) * (-1), 60, Math.floor(Math.random() * 50 + 30));
 let enemy2 = new Enemy(Math.floor(Math.random()*200 + 250) * (-1), 60, Math.floor(Math.random() * 50 + 30));
 let enemy3 = new Enemy(Math.floor(Math.random()*200 + 200) * (-1), 140, Math.floor(Math.random() * 50 + 30));
@@ -181,10 +187,11 @@ let enemy5 = new Enemy(Math.floor(Math.random()*200 + 300) * (-1), 225, Math.flo
 let enemy6 = new Enemy(Math.floor(Math.random()*200 + 450) * (-1), 225, Math.floor(Math.random() * 50 + 40));
 let allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];
 
-let player = new Player(200, 380);
+let player = new Player(200, 380);  // Player
 
-let restartBtn = new Restartbtn();
+let restartBtn = new Restartbtn();  // Restart
 
+//  All lives
 let life1 = new Life(10, 550);
 let life2 = new Life(30, 550);
 let life3 = new Life(50, 550);
