@@ -135,6 +135,7 @@ class Restartbtn {
     }
 }
 
+// Load fonts using Web Font Loader
 WebFont.load({
     google: {
       families: ['Fredoka One']
