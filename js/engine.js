@@ -187,31 +187,13 @@ var Engine = (function(global) {
             }
         });
     }
-    // function restart() {
-    //     restartBtn.canvasObj().addEventListener('click', function(e) {
-    //         if(e.offsetX >= 450 && e.offsetX <= 493 && e.offsetY >= 560 && e.offsetY <= 570) {
-    //             // console.log('clicked');
-    //             reset();
-    //         }
-    //     });
-    // }
+
     function checkCollisions() {
-        // if(player.y === -20) {
-        //     // setTimeout(function() {
-        //         console.log('You win');
-        //         // alert('You win');
-        //     //     player.x = 200;
-        //     //     player.y = 380;
-        //     // }, 1000);
-        // }
         if(player.x < 0 || player.x + player.width > canvas.width) {
             player.x = player.posX;
         } else if(player.y + 20 < 0 || player.y + player.height > canvas.height) {
             player.y = player.posY;
         }
-
-        // player.collided = player.x === 200 && player.y === 380;
-        //                 // console.log(player.collided);
 
         allEnemies.forEach(function(enemy) {
             if( player.x + (player.width / 2) - 27 < enemy.x + enemy.width &&
@@ -231,7 +213,6 @@ var Engine = (function(global) {
                         allLives.pop();
                         player.collided = false;
                     }
-                    console.log(player.lives);
                 }, 101);
             }
         });
