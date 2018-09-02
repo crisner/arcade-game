@@ -107,26 +107,26 @@ class Greyedheart extends Life {
     }
 }
 
-class Resetbtn {
+class Restartbtn {
     constructor() {
         this.x = 10;
         this.y = 555;
-
         this.canvasWidth = function() {
             let canvas = document.querySelector('canvas');
             return canvas.width;
         };
-
+        this.canvasObj = function() {
+            let canvas = document.querySelector('canvas');
+            return canvas;
+        };
     }
-    render() {
-        // let canvas =
 
+    render() {
         ctx.font = 'bold 12pt Calibri';
         ctx.textAlign = 'end';
         ctx.textBaseline = 'top';
         ctx.fillStyle = 'black';
-        ctx.fillText('Play again', this.canvasWidth() - this.x, this.y);
-        // console.log(this.canvasWidth());
+        ctx.fillText('Restart', this.canvasWidth() - this.x, this.y);
     }
 }
 
@@ -183,7 +183,7 @@ let allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];
 
 let player = new Player(200, 380);
 
-let resetBtn = new Resetbtn();
+let restartBtn = new Restartbtn();
 
 let life1 = new Life(10, 550);
 let life2 = new Life(30, 550);

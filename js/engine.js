@@ -163,7 +163,7 @@ var Engine = (function(global) {
             life.render();
         });
 
-        resetBtn.render();
+        restartBtn.render();
     }
 
     /* This function does nothing but it could have been a good place to
@@ -171,8 +171,28 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        restartBtn.canvasObj().addEventListener('click', function(e) {
+            if(e.offsetX >= 450 && e.offsetX <= 493 && e.offsetY >= 560 && e.offsetY <= 570) {
+                let posX = 100;
+                player.x = 200;
+                player.y = 380;
+                player.lives = 3;
+                allEnemies.forEach(function(enemy) {
+                    enemy.x = Math.floor(Math.random()*200 + posX) * (-1);
+                    posX = posX + 150;
+                });
+                allLives = [life1, life2, life3];
+            }
+        });
     }
+    // function restart() {
+    //     restartBtn.canvasObj().addEventListener('click', function(e) {
+    //         if(e.offsetX >= 450 && e.offsetX <= 493 && e.offsetY >= 560 && e.offsetY <= 570) {
+    //             // console.log('clicked');
+    //             reset();
+    //         }
+    //     });
+    // }
     function checkCollisions() {
         // if(player.y === -20) {
         //     // setTimeout(function() {
