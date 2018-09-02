@@ -173,6 +173,7 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
+        // Reset game on clicking the restart button
         restartBtn.canvasObj().addEventListener('click', function(e) {
             if(e.offsetX >= 450 && e.offsetX <= 493 && e.offsetY >= 560 && e.offsetY <= 570) {
                 let posX = 100;
@@ -189,12 +190,14 @@ var Engine = (function(global) {
     }
 
     function checkCollisions() {
+        // Prevent player from going off canvas
         if(player.x < 0 || player.x + player.width > canvas.width) {
             player.x = player.posX;
         } else if(player.y + 20 < 0 || player.y + player.height > canvas.height) {
             player.y = player.posY;
         }
 
+        // Axis-Aligned Bounding Box collision detection algorithm
         allEnemies.forEach(function(enemy) {
             if( player.x + (player.width / 2) - 27 < enemy.x + enemy.width &&
                 player.x + (player.width / 2) + 20 > enemy.x &&
@@ -202,11 +205,12 @@ var Engine = (function(global) {
                 player.y + (player.height / 2) - 10 > enemy.y ) {
 
                 player.collided = true;
+                // Reset player to start position upon collision with enemy
                 setTimeout(function() {
                     player.x = 200;
                     player.y = 380;
                 }, 100);
-
+                // Remove a life from the player on collision
                 setTimeout(function() {
                     if(player.collided) {
                         player.lives--;
