@@ -114,8 +114,8 @@ class Greyedheart extends Life {
 // Collectibles
 class Collectibles {
     constructor() {
-        this.xValues = [0, 100, 200, 300, 400];
-        this.yValues = [60, 140, 220, 300, 380];
+        this.xValues = [25, 125, 225, 325, 425];
+        this.yValues = [130, 210, 290, 370, 450];
         this.x = 0;
         this.y = 0;
         this.width = 60;
