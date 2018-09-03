@@ -136,6 +136,12 @@ class Collectibles {
     }
 }
 
+class Star {
+    constructor(url) {
+        super(url);
+    }
+}
+
 // Button to restart game
 class Restartbtn {
     constructor() {
