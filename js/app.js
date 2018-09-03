@@ -111,6 +111,31 @@ class Greyedheart extends Life {
     }
 }
 
+// Collectibles
+class Collectibles {
+    constructor(url) {
+        this.sprite = url;
+        this.xValues = [0, 100, 200, 300, 400];
+        this.yValues = [60, 140, 220, 300, 380];
+        this.x = 0;
+        this.y = 0;
+    }
+    getPosition() {
+        let pos = [];
+        for(let i = 0; i < 2; i++) {
+            let index = Math.floor(Math.random()*5);
+            pos.push(index);
+        }
+        return pos;
+    }
+    render() {
+        this.getPosition();
+        this.x = pos[0];
+        this.y = pos[1]
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+}
+
 // Button to restart game
 class Restartbtn {
     constructor() {
