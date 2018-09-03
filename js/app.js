@@ -134,12 +134,18 @@ class Collectibles {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y, this.width, this.height);
     }
 }
-
 class Star extends Collectibles {
     constructor() {
         super();
         this.getPosition();
         this.sprite = 'images/Star.png';
+    }
+}
+class Gem extends Collectibles {
+    constructor() {
+        super();
+        this.getPosition();
+        this.sprite = 'images/Gem Orange.png';
     }
 }
 
