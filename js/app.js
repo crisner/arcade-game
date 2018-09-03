@@ -113,12 +113,13 @@ class Greyedheart extends Life {
 
 // Collectibles
 class Collectibles {
-    constructor(url) {
-        this.sprite = url;
+    constructor() {
         this.xValues = [0, 100, 200, 300, 400];
         this.yValues = [60, 140, 220, 300, 380];
         this.x = 0;
         this.y = 0;
+        this.width = 60;
+        this.height = 90;
     }
     getPosition() {
         let pos = [];
@@ -126,19 +127,19 @@ class Collectibles {
             let index = Math.floor(Math.random()*5);
             pos.push(index);
         }
-        return pos;
+        this.x = this.xValues[pos[0]];
+        this.y = this.yValues[pos[1]];
     }
     render() {
-        this.getPosition();
-        this.x = pos[0];
-        this.y = pos[1]
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y, this.width, this.height);
     }
 }
 
-class Star {
-    constructor(url) {
-        super(url);
+class Star extends Collectibles {
+    constructor() {
+        super();
+        this.getPosition();
+        this.sprite = 'images/Star.png';
     }
 }
 
@@ -198,6 +199,13 @@ let greyedHeart2 = new Greyedheart(30, 550);
 let greyedHeart3 = new Greyedheart(50, 550);
 let allGreyedHearts = [greyedHeart1, greyedHeart2, greyedHeart3];
 
+// All collectibles
+let star1 = new Star();
+let star2 = new Star();
+let star3 = new Star();
+let star4 = new Star();
+let star5 = new Star();
+let allStars = [star1, star2, star3, star4, star5];
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
