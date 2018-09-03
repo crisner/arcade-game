@@ -165,6 +165,10 @@ var Engine = (function(global) {
             life.render();
         });
 
+        allStars.forEach(function(star) {
+            star.render();
+        });
+
         restartBtn.render();
     }
 
@@ -232,7 +236,8 @@ var Engine = (function(global) {
         'images/enemy-bug.png',
         'images/char-boy.png',
         'images/Heart.png',
-        'images/Heart-gray.png'
+        'images/Heart-gray.png',
+        'images/Star.png'
     ]);
     Resources.onReady(init);
 
