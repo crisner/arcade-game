@@ -114,12 +114,12 @@ class Greyedheart extends Life {
 // Collectibles
 class Collectibles {
     constructor() {
-        this.xValues = [25, 125, 225, 325, 425];
-        this.yValues = [130, 210, 290, 370, 450];
+        this.xValues = [30, 130, 230, 330, 430];
+        this.yValues = [135, 215, 295, 375, 455];
         this.x = 0;
         this.y = 0;
-        this.width = 60;
-        this.height = 90;
+        this.width = 40;
+        this.height = 60;
     }
     getPosition() {
         let pos = [];
@@ -129,6 +129,9 @@ class Collectibles {
         }
         this.x = this.xValues[pos[0]];
         this.y = this.yValues[pos[1]];
+        if(this.y === 455) {
+            this.y += 15;
+        }
     }
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y, this.width, this.height);
@@ -144,6 +147,8 @@ class Star extends Collectibles {
 class Gem extends Collectibles {
     constructor() {
         super();
+        this.xValues = [30, 130, 230, 330, 430];
+        this.yValues = [135, 215, 295, 215, 295];
         this.getPosition();
         this.sprite = 'images/Gem Orange.png';
     }
