@@ -213,6 +213,8 @@ let star4 = new Star();
 let star5 = new Star();
 let allStars = [star1, star2, star3, star4, star5];
 
+let gem1 = new Gem();
+
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
