@@ -225,6 +225,17 @@ var Engine = (function(global) {
                 }, 101);
             }
         });
+
+        allStars.forEach(function(star, index) {
+            if( player.x + (player.width / 2) - 27 < star.x + star.width &&
+                player.x + (player.width / 2) + 20 > star.x &&
+                player.y + 100 < star.y + star.height &&
+                player.y + (player.height / 2) - 10 > star.y ) {
+
+               allStars.splice(index, 1);
+               player.stars++;
+            }
+        });
     }
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when

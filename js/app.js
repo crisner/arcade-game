@@ -41,6 +41,7 @@ class Player {
         this.posX = 0;          // Store last position on the X-axis
         this.posY = 0;          // Store last position on the X-axis
         this.lives = 3;
+        this.stars = 0;
         this.collided = false;
     }
     handleInput(dir) {
