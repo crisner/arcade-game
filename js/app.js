@@ -80,6 +80,15 @@ class Player {
             ctx.fillText('You win!', canvas.width/2, canvas.height/2);
             ctx.strokeStyle = 'black';
             ctx.strokeText('You win!', canvas.width/2, canvas.height/2);
+
+            ctx.font = 'normal 18pt Fredoka One';
+            ctx.lineWidth = 1;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = 'white';
+            ctx.fillText(`You have collected ${player.stars} stars and ${player.gems} gems!`, canvas.width/2, canvas.height/2 + 55);
+            ctx.strokeStyle = 'grey';
+            ctx.strokeText(`You have collected ${player.stars} stars and ${player.gems} gems!`, canvas.width/2, canvas.height/2 + 55);
         } else if(this.lives === 0) {
             ctx.font = 'normal 50pt Fredoka One';
             ctx.lineWidth = 3;
