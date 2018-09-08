@@ -192,6 +192,8 @@ var Engine = (function(global) {
                 player.x = 200;
                 player.y = 380;
                 player.lives = 3;
+                player.stars = 0;
+                player.gems = 0;
                 allEnemies.forEach(function(enemy) {
                     enemy.x = Math.floor(Math.random()*200 + posX) * (-1);
                     posX = posX + 150;

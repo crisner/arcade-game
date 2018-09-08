@@ -89,6 +89,7 @@ class Player {
             ctx.fillText(`You have collected ${player.stars} stars and ${player.gems} gems!`, canvas.width/2, canvas.height/2 + 55);
             ctx.strokeStyle = 'grey';
             ctx.strokeText(`You have collected ${player.stars} stars and ${player.gems} gems!`, canvas.width/2, canvas.height/2 + 55);
+
         } else if(this.lives === 0) {
             ctx.font = 'normal 50pt Fredoka One';
             ctx.lineWidth = 3;
