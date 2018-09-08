@@ -156,7 +156,7 @@ class Gem extends Collectibles {
     }
     timed() {
         let timeNow = Date.now() - this.time;
-        if(player.lives > 0 && timeNow > 6000) {
+        if(player.lives > 0 && timeNow > 6000 && player.y !== -20) {
             this.posX = this.x;
             this.posY = this.y;
             let pos = [];
@@ -199,11 +199,9 @@ class Restartbtn {
         ctx.fillText(this.text, this.canvasWidth() - this.x, this.y);
     }
 }
-
 class starScore extends Restartbtn {
     constructor(x, y, text, w) {
         super(x, y, text, w);
-        // this.w = w;
         this.canvasWidth = function() {
             return this.w;
         };
@@ -215,7 +213,6 @@ class starScore extends Restartbtn {
 class gemScore extends Restartbtn {
     constructor(x, y, text, w) {
         super(x, y, text, w);
-        // this.w = w;
         this.canvasWidth = function() {
             return this.w;
         };
