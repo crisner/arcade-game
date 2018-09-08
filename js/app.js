@@ -67,6 +67,8 @@ class Player {
     }
     render() {
         let canvas = document.querySelector('canvas');
+        let stars = '';
+        let gems = '';
 
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 
@@ -85,10 +87,23 @@ class Player {
             ctx.lineWidth = 1;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
+            if (player.stars === 1 && player.gems === 1) {
+                stars = 'star';
+                gems = 'gem';
+            } else if (player.stars === 1) {
+                stars = 'star';
+                gems = 'gems';
+            } else if (player.gems === 1) {
+                stars = 'stars';
+                gems = 'gem';
+            } else {
+                stars = 'stars';
+                gems = 'gems';
+            }
             ctx.fillStyle = 'white';
-            ctx.fillText(`You have collected ${player.stars} stars and ${player.gems} gems!`, canvas.width/2, canvas.height/2 + 55);
+            ctx.fillText(`You have collected ${player.stars} ${stars} and ${player.gems} ${gems}!`, canvas.width/2, canvas.height/2 + 55);
             ctx.strokeStyle = 'grey';
-            ctx.strokeText(`You have collected ${player.stars} stars and ${player.gems} gems!`, canvas.width/2, canvas.height/2 + 55);
+            ctx.strokeText(`You have collected ${player.stars} ${stars} and ${player.gems} ${gems}!`, canvas.width/2, canvas.height/2 + 55);
 
         } else if(this.lives === 0) {
             ctx.font = 'normal 50pt Fredoka One';
