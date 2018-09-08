@@ -176,9 +176,10 @@ class Gem extends Collectibles {
 
 // Button to restart game
 class Restartbtn {
-    constructor() {
-        this.x = 10;
-        this.y = 555;
+    constructor(x, y, text) {
+        this.x = x;
+        this.y = y;
+        this.text = text;
         this.canvasWidth = function() {
             let canvas = document.querySelector('canvas');
             return canvas.width;
@@ -194,7 +195,17 @@ class Restartbtn {
         ctx.textAlign = 'end';
         ctx.textBaseline = 'top';
         ctx.fillStyle = 'black';
-        ctx.fillText('Restart', this.canvasWidth() - this.x, this.y);
+        ctx.fillText(this.text, this.canvasWidth() - this.x, this.y);
+    }
+}
+
+class starScore extends Restartbtn {
+    constructor(x, y, text, w) {
+        super(x, y, text);
+        this.w = w
+        this.canvasWidth = function() {
+            return this.w;
+        };
     }
 }
 
@@ -217,7 +228,7 @@ let allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];
 
 let player = new Player(200, 380);  // Player
 
-let restartBtn = new Restartbtn();  // Restart
+let restartBtn = new Restartbtn(10, 555, 'Restart');  // Restart
 
 //  All lives
 let life1 = new Life(10, 550);
@@ -247,6 +258,7 @@ let allGems = [gem1, gem2, gem3, gem4, gem5];
 
 let scorePanelStar = new Star(85, 540, 28, 45);
 let scorePanelGem = new Gem(150, 550, 20, 30);
+let totalStars = new starScore(0, 557, '59', 133);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.

@@ -173,6 +173,7 @@ var Engine = (function(global) {
 
         scorePanelStar.render();
         scorePanelGem.render();
+        totalStars.render();
         restartBtn.render();
     }
 
