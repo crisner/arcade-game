@@ -171,6 +171,8 @@ var Engine = (function(global) {
             life.render();
         });
 
+        scorePanelStar.render();
+        scorePanelGem.render();
         restartBtn.render();
     }
 

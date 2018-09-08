@@ -116,13 +116,13 @@ class Greyedheart extends Life {
 
 // Collectibles
 class Collectibles {
-    constructor() {
-        this.xValues = [30, 130, 230, 330, 430];
-        this.yValues = [135, 215, 295, 375, 455];
+    constructor(xValues = [30, 130, 230, 330, 430], yValues = [135, 215, 295, 375, 455], w = 40, h = 60) {
+        this.xValues = xValues;
+        this.yValues = yValues;
         this.x = 0;
         this.y = 0;
-        this.width = 40;
-        this.height = 60;
+        this.width = w;
+        this.height = h;
     }
     getPosition() {
         let pos = [];
@@ -133,23 +133,23 @@ class Collectibles {
                 pos.push(index);
             }
         }
-        this.x = this.xValues[pos[0]];
-        this.y = this.yValues[pos[1]];
+        this.x = this.xValues[pos[0]] || this.xValues;
+        this.y = this.yValues[pos[1]] || this.yValues;
     }
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y, this.width, this.height);
     }
 }
 class Star extends Collectibles {
-    constructor() {
-        super();
+    constructor(xValues, yValues, w, h) {
+        super(xValues, yValues, w, h);
         this.getPosition();
         this.sprite = 'images/Star.png';
     }
 }
 class Gem extends Collectibles {
-    constructor() {
-        super();
+    constructor(xValues, yValues, w, h) {
+        super(xValues, yValues, w, h);
         this.time = Date.now();
         this.getPosition();
         this.sprite = 'images/Gem Orange.png';
@@ -244,6 +244,9 @@ let gem3 = new Gem();
 let gem4 = new Gem();
 let gem5 = new Gem();
 let allGems = [gem1, gem2, gem3, gem4, gem5];
+
+let scorePanelStar = new Star(85, 540, 28, 45);
+let scorePanelGem = new Gem(150, 550, 20, 30);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
