@@ -202,10 +202,25 @@ class Restartbtn {
 class starScore extends Restartbtn {
     constructor(x, y, text, w) {
         super(x, y, text);
-        this.w = w
+        this.w = w;
         this.canvasWidth = function() {
             return this.w;
         };
+    }
+    update() {
+        this.text = player.stars.toString();
+    }
+}
+class gemScore extends Restartbtn {
+    constructor(x, y, text, w) {
+        super(x, y, text);
+        this.w = w;
+        this.canvasWidth = function() {
+            return this.w;
+        };
+    }
+    update() {
+        this.text = player.gems.toString();
     }
 }
 
@@ -257,8 +272,9 @@ let gem5 = new Gem();
 let allGems = [gem1, gem2, gem3, gem4, gem5];
 
 let scorePanelStar = new Star(85, 540, 28, 45);
-let scorePanelGem = new Gem(150, 550, 20, 30);
-let totalStars = new starScore(0, 557, '59', 133);
+let scorePanelGem = new Gem(140, 548, 20, 30);
+let totalStars = new starScore(0, 557, player.stars, 123);
+let totalGems = new gemScore(0, 557, player.gems, 173);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.

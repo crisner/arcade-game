@@ -94,6 +94,8 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
+        totalStars.update();
+        totalGems.update();
     }
 
     /* This function initially draws the "game level", it will then call
@@ -174,6 +176,7 @@ var Engine = (function(global) {
         scorePanelStar.render();
         scorePanelGem.render();
         totalStars.render();
+        totalGems.render();
         restartBtn.render();
     }
 
