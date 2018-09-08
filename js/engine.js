@@ -198,7 +198,12 @@ var Engine = (function(global) {
                     enemy.x = Math.floor(Math.random()*200 + posX) * (-1);
                     posX = posX + 150;
                 });
+                allStars = [star1, star2, star3, star4, star5];
                 allLives = [life1, life2, life3];
+                allStars.forEach(function(star) {
+                    star.getPosition();
+                });
+                gem1.getPosition();
             }
         });
     }
