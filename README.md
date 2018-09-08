@@ -11,6 +11,10 @@ This is a game which is an simplified version of the classic arcade game 'Frogge
 - Player can restart the game anytime during the game or after completing current game by clicking on the restart text at the bottom of the screen
 - Player can keep track of lives remaining from the number of red hearts on the bottom of the screen
 
+## How to get started
+- Clone the repository or download as zip file
+- Open the index.html file in your browser(preferably chrome) to start playing
+
 ## Tools used
 - HTML5 canvas
 - Javascript/es6
