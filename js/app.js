@@ -43,6 +43,7 @@ class Player {
         this.posY = 0;          // Store last position on the X-axis
         this.lives = 3;
         this.stars = 0;
+        this.gems = 0;
         this.collided = false;
     }
     handleInput(dir) {
@@ -149,10 +150,27 @@ class Star extends Collectibles {
 class Gem extends Collectibles {
     constructor() {
         super();
-        this.xValues = [30, 130, 230, 330, 430];
-        this.yValues = [135, 215, 295, 215, 295];
+        this.time = Date.now();
         this.getPosition();
         this.sprite = 'images/Gem Orange.png';
+    }
+    timed() {
+        let timeNow = Date.now() - this.time;
+        if(player.lives > 0 && timeNow > 6000) {
+            this.posX = this.x;
+            this.posY = this.y;
+            let pos = [];
+            while((pos[0] === 2 && pos[1] === 4) || pos.length < 2) {
+                pos = [];
+                for(let i = 0; i < 2; i++) {
+                    let index = Math.floor(Math.random()*5);
+                    pos.push(index);
+                }
+            }
+            this.x = this.xValues[pos[0]];
+            this.y = this.yValues[pos[1]];
+            this.time = Date.now();
+        }
     }
 }
 
@@ -221,6 +239,11 @@ let star5 = new Star();
 let allStars = [star1, star2, star3, star4, star5];
 
 let gem1 = new Gem();
+let gem2 = new Gem();
+let gem3 = new Gem();
+let gem4 = new Gem();
+let gem5 = new Gem();
+let allGems = [gem1, gem2, gem3, gem4, gem5];
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.

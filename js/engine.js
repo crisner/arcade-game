@@ -154,6 +154,7 @@ var Engine = (function(global) {
         });
 
         gem1.render();
+        gem1.timed();
 
         allEnemies.forEach(function(enemy) {
             enemy.render();
