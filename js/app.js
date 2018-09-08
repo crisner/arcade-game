@@ -134,7 +134,7 @@ class Collectibles {
         this.width = w;
         this.height = h;
     }
-    getPosition() {
+    getPosition() {     // Get random values from an array or get the provided value
         let pos = [];
         while((pos[0] === 2 && pos[1] === 4) || pos.length < 2) {
             pos = [];
@@ -164,11 +164,12 @@ class Gem extends Collectibles {
         this.getPosition();
         this.sprite = 'images/Gem Orange.png';
     }
-    timed() {
+    timed() {   // Timing function to change position of gem after a set amount of time
         let timeNow = Date.now() - this.time;
         if(player.lives > 0 && timeNow > 6000 && player.y !== -20) {
             this.posX = this.x;
             this.posY = this.y;
+            // Get random position from array
             let pos = [];
             while((pos[0] === 2 && pos[1] === 4) || pos.length < 2) {
                 pos = [];
@@ -200,7 +201,6 @@ class Restartbtn {
             return canvas;
         };
     }
-
     render() {
         ctx.font = 'bold 12pt Calibri';
         ctx.textAlign = 'end';
@@ -209,7 +209,7 @@ class Restartbtn {
         ctx.fillText(this.text, this.canvasWidth() - this.x, this.y);
     }
 }
-class starScore extends Restartbtn {
+class starScore extends Restartbtn {    // Display total stars collected
     constructor(x, y, text, w) {
         super(x, y, text, w);
         this.canvasWidth = function() {
@@ -220,7 +220,7 @@ class starScore extends Restartbtn {
         this.text = player.stars.toString();
     }
 }
-class gemScore extends Restartbtn {
+class gemScore extends Restartbtn {     // Display total gems collected
     constructor(x, y, text, w) {
         super(x, y, text, w);
         this.canvasWidth = function() {
@@ -279,6 +279,7 @@ let gem4 = new Gem();
 let gem5 = new Gem();
 let allGems = [gem1, gem2, gem3, gem4, gem5];
 
+// Score elements
 let scorePanelStar = new Star(85, 540, 28, 45);
 let scorePanelGem = new Gem(140, 548, 20, 30);
 let totalStars = new starScore(0, 557, player.stars, 123);
