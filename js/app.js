@@ -176,9 +176,10 @@ class Gem extends Collectibles {
 
 // Button to restart game
 class Restartbtn {
-    constructor(x, y, text) {
+    constructor(x, y, text, w) {
         this.x = x;
         this.y = y;
+        this.w = w;
         this.text = text;
         this.canvasWidth = function() {
             let canvas = document.querySelector('canvas');
@@ -201,8 +202,8 @@ class Restartbtn {
 
 class starScore extends Restartbtn {
     constructor(x, y, text, w) {
-        super(x, y, text);
-        this.w = w;
+        super(x, y, text, w);
+        // this.w = w;
         this.canvasWidth = function() {
             return this.w;
         };
@@ -213,8 +214,8 @@ class starScore extends Restartbtn {
 }
 class gemScore extends Restartbtn {
     constructor(x, y, text, w) {
-        super(x, y, text);
-        this.w = w;
+        super(x, y, text, w);
+        // this.w = w;
         this.canvasWidth = function() {
             return this.w;
         };
