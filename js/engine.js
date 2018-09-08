@@ -237,6 +237,16 @@ var Engine = (function(global) {
                player.stars++;
             }
         });
+
+        if( player.x + (player.width / 2) - 27 < gem1.x + gem1.width &&
+            player.x + (player.width / 2) + 20 > gem1.x &&
+            player.y + 100 < gem1.y + gem1.height &&
+            player.y + (player.height / 2) - 10 > gem1.y ) {
+
+            gem1.x = -40;
+            gem1.y = -40;
+            player.gems++;
+        }
     }
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
