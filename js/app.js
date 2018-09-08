@@ -1,3 +1,4 @@
+'use strict';
 // Enemies our player must avoid
 class Enemy {
     constructor(x, y, dv) {
@@ -124,15 +125,15 @@ class Collectibles {
     }
     getPosition() {
         let pos = [];
-        for(let i = 0; i < 2; i++) {
-            let index = Math.floor(Math.random()*5);
-            pos.push(index);
+        while((pos[0] === 2 && pos[1] === 4) || pos.length < 2) {
+            pos = [];
+            for(let i = 0; i < 2; i++) {
+                let index = Math.floor(Math.random()*5);
+                pos.push(index);
+            }
         }
         this.x = this.xValues[pos[0]];
         this.y = this.yValues[pos[1]];
-        if(this.y === 455) {
-            this.y += 15;
-        }
     }
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y, this.width, this.height);
